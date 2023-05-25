@@ -1,4 +1,10 @@
 - hosts: localhost
   tasks:
     - debug:
-        msg: "Hello From Prabhanjan Ugale"
+        msg: "Hello 1"
+    - debug:
+        msg: "Hello 2"
+    - debug:
+        msg: "Hello 3"
+    - debug:
+        msg: "Hello 4"
