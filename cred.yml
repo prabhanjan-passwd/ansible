@@ -2,4 +2,5 @@
   tasks:
     - user:
         name: "{{ test_username }}"
-        password: "{{ test_password }}"
+        state: present
+        
