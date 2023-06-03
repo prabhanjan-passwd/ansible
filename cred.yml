@@ -2,5 +2,7 @@
   tasks:
     - user:
         name: "{{ test_username }}"
+        password: "{{ test_password }}"
+        uid: 2002
         state: present
         
