@@ -6,5 +6,3 @@
         msg: "Hello 2"
     - debug:
         msg: "Hello 3"
-    - debug:
-        msg: "Hello 4"
