@@ -1,8 +1,5 @@
-- hosts: localhost
+- hosts: all
   tasks:
     - debug:
         msg: "Hello 1"
-    - debug:
-        msg: "Hello 2"
-    - debug:
-        msg: "Hello 3"
+
