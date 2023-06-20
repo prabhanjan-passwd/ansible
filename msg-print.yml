@@ -1,0 +1,5 @@
+---
+- hosts: sbr-ansible
+  tasks:
+      - debug:
+          msg: "Max Payne 3"
