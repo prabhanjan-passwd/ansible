@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+     - name: Setting password
+       ansible.builtin.set_fact:
+        ansible_isam_username: "{{ isam_username }}"
+     
+    - name: Setting password
+      ansible.builtin.set_fact:
+        ansible_isam_password: "{{ isam_password }}"
