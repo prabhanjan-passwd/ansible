@@ -1,5 +1,8 @@
 - hosts: all
   tasks:
     - user:
-        name: "{{user}}"
+        name: "{{ test_username }}"
+        password: "{{ test_password }}"
         state: present
+        uid: 10000
+        comment: "prabhanjan user"
