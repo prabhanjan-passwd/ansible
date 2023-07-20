@@ -2,8 +2,8 @@
   tasks:
     - name: Setting password
       ansible.builtin.set_fact:
-        ansible_isam_username: "{{ credential.28.isam_username }}"
+        ansible_isam_username: "{{ isam_username }}"
      
     - name: Setting password
       ansible.builtin.set_fact:
-        ansible_isam_password: "{{ credential.28.isam_password  }}"
+        ansible_isam_password: "{{ isam_password  }}"
