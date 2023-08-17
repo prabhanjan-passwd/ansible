@@ -1,0 +1,8 @@
+---
+- name: Get Facts about an Azure VM
+  hosts: localhost
+
+  tasks:
+    - name: Get facts for all virtual machines of a resource group
+      azure_rm_virtualmachine_info:
+        resource_group: AZNEUIT-RG-SOLARWINDS
