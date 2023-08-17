@@ -1,1 +1,1 @@
-azure
+python >= 2.7
