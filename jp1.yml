@@ -1,0 +1,9 @@
+---
+- name: Gather Ansible Facts
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Gather Ansible Facts about Installed Packages
+      ansible.builtin.package_facts:
+        manager: auto
