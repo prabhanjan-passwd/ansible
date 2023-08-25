@@ -5,11 +5,11 @@
       command: "awk -F: '/^awx/{print $2}' /etc/subuid"
       register: awx_uid
     - name: task2
-      command: "awk -F: '/^awx/{print $2}' /etc/subgid"
-      register: awx_gid
+      command: "awk -F: '/^awx/{print $1}' /etc/subgid"
+      register: awx_gname
     - ansible.builtin.user:
-         name: awx-user
+         name: awx-test
          uid: "{{ awx_uid.stdout }}"
-        
+         groups: "{{ awx_gname.stdout }}"
          state: present
                        
