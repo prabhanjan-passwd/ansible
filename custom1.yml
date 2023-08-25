@@ -10,6 +10,6 @@
     - ansible.builtin.user:
          name: awx-test
          uid: "{{ awx_uid.stdout }}"
-         groups: "{{ awx_gname.stdout }}"
+         group: "{{ awx_gname.stdout }}"
          state: present
                        
