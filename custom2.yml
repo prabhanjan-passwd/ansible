@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: task1
+      command: "awx-manage inventory_import --source=/root/inventory --inventory-name='new-awx-inventory'"
