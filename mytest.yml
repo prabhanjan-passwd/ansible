@@ -1,18 +1,10 @@
 ---
 - hosts: all
+  vars:
+    username: prabhanjan
+    pwd_path: redhat
   tasks:
     - name: task1
-      command: "whoami"
-      register: user_name
-
-    - name: task2
-      command: "pwd"
-      register: user_home
-
-    - name: printing 1
-      debug:
-        msg: "{{ user_name }}"
-
-    - name: printing 2
-      debug: 
-        msg: "{{ user_home }}"
+      ansible.builtin.user:
+              name: "{{ username }}"
+              password: "{{ lookup('ansible.builtin.password', '{{ pwd_path }}', length=16, encrypt='sha512_crypt') }}"
