@@ -1,0 +1,25 @@
+---
+- name: Gather Ansible Facts
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Gather Ansible Facts about Installed Packages
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - ansible.builtin.setup:
+      filter:
+          - 'ansible_distribution'
+          - 'ansible_machine_id'
+          - 'ansible_*_mb'
+
+    - ansible.builtin.dnf:
+		    name: httpd
+		    state: present
+
+    - ansible.builtin.service:
+		    name: httpd
+		    state: started
+		    enabled: yes
+     
