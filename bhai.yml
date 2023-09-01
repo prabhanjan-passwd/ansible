@@ -4,24 +4,24 @@
   gather_facts: true
 
   tasks:
-     -  name: Gather Ansible Facts about Installed Packages
-        ansible.builtin.package_facts:
+    - name: Gather Ansible Facts about Installed Packages
+      ansible.builtin.package_facts:
           manager: auto
 
-     - name: task2
-       ansible.builtin.setup:
-       filter:
+    - name: task2
+      ansible.builtin.setup:
+      filter:
          - 'ansible_distribution'
          - 'ansible_machine_id'
          - 'ansible_*_mb'
-
-     - name: task2
-       ansible.builtin.dnf:
+         
+    - name: task2
+      ansible.builtin.dnf:
          name: httpd
          state: present
 
-     - name: task3
-       ansible.builtin.service:
+    - name: task3
+      ansible.builtin.service:
          name: httpd
          state: started
          enabled: yes
