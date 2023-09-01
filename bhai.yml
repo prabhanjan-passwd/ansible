@@ -8,17 +8,20 @@
         ansible.builtin.package_facts:
           manager: auto
 
-     - ansible.builtin.setup:
+     - name: task2
+       ansible.builtin.setup:
        filter:
          - 'ansible_distribution'
          - 'ansible_machine_id'
          - 'ansible_*_mb'
 
-     - ansible.builtin.dnf:
+     - name: task2
+       ansible.builtin.dnf:
          name: httpd
          state: present
 
-     - ansible.builtin.service:
+     - name: task3
+       ansible.builtin.service:
          name: httpd
          state: started
          enabled: yes
