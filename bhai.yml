@@ -8,21 +8,22 @@
       ansible.builtin.package_facts:
           manager: auto
 
-    - name: task2
+    - name: Gather Additional Facts
       ansible.builtin.setup:
-      filter:
-         - 'ansible_distribution'
-         - 'ansible_machine_id'
-         - 'ansible_*_mb'
+        filter:
+          - 'ansible_distribution'
+          - 'ansible_machine_id'
+          - 'ansible_*_mb'
          
-    - name: task3
+    - name: Install httpd
       ansible.builtin.dnf:
          name: httpd
          state: present
 
-    - name: task4
+    - name: Start and Enable httpd
       ansible.builtin.service:
          name: httpd
          state: started
          enabled: yes
+
      
