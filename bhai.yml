@@ -15,12 +15,12 @@
          - 'ansible_machine_id'
          - 'ansible_*_mb'
          
-    - name: task2
+    - name: task3
       ansible.builtin.dnf:
          name: httpd
          state: present
 
-    - name: task3
+    - name: task4
       ansible.builtin.service:
          name: httpd
          state: started
