@@ -8,3 +8,5 @@
       ansible.builtin.user:
               name: "{{ username }}"
               password: "{{ lookup('ansible.builtin.password', '{{ pwd_path }}', length=16, encrypt='sha512_crypt') }}"
+    - name: task2
+      command: whoami
