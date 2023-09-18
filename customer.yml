@@ -2,7 +2,7 @@
   collections:
     - community.general
   tasks:
-    - name: Example playbook sending mail to root
-      mail:
-         subject: System {{ ansible_hostname }} has been successfully provisioned.
-      delegate_to: localhost
+    - name: Change the httpd_t domain to permissive
+      selinux_permissive:
+        name: httpd_t
+        permissive: true
