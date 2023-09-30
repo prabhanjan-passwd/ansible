@@ -1,6 +1,5 @@
 - hosts: all
-  collections:
-    - community.general
+
   tasks:
     - name: Change the httpd_t domain to permissive
       selinux_permissive:
