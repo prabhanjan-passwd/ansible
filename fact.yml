@@ -1,0 +1,8 @@
+ - name: Dump facts
+   hosts: all
+   tasks:
+   - name: Facts
+     setup:
+   - name: Dump
+     debug:
+       msg: "{{ hostvars[inventory_hostname] }}"
