@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: 192.168.122.21
   tasks:
           - name: testing task
             fetch: 
