@@ -3,4 +3,4 @@
           - name: testing task
             fetch: 
                src: /root/testfile2
-               dest: ~/
+               dest: /root
