@@ -2,5 +2,5 @@
   tasks:
           - name: testing task
             fetch: 
-               src: /root/testfile
-               dest: /root/ansible/
+               src: /root/testfile2
+               dest: ~/
