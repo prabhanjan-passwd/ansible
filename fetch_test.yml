@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+          - name: testing task
+            fetch: 
+               src: /root/testfile
+               dest: /root/ansible/
