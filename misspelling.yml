@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+      - name: Copy a single file
+        ansible.windows.win_copy:
+           src: /srv/myfiles/foo.conf
+           dest: C:\Temp\renamed-foo.conf
