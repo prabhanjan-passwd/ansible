@@ -1,12 +1,7 @@
 ---
 - hosts: all
   tasks:
-       - name: Enable firewall for Domain, Public and Private profiles
-         community.windows.win_firewall:
-             state: enabled
-         profiles:
-            - Domain
-            - Private
-            - Public
-         tags: enable_firewall
+    - name: Delay shutting down the remote node
+      community.general.shutdown:
+        delay: 60
          
