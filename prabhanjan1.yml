@@ -1,0 +1,8 @@
+---
+- hosts: all
+  no_log: True
+
+  tasks:
+    - set_stats:
+        data:
+          message: "SECRET VALUE"
