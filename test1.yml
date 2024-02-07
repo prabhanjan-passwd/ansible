@@ -1,8 +1,6 @@
 - hosts: all
   tasks:
     - user:
-        name: "{{ test_username }}"
-        password: "{{ test_password }}"
+        name: hashicorp_user
         state: present
-        uid: 10000
-        comment: "prabhanjan user"
+     
