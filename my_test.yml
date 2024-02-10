@@ -1,0 +1,18 @@
+---
+  - name: PON-IDAS30-SERVERS
+    hosts: all
+    become: True
+    serial: 1
+    tasks:
+      - name: hello-world
+        debug:
+          msg:
+            - hello world
+
+      - name: default_vault_encryption_key
+        debug:
+          msg:
+            - "{{ ssh_port }}"
+
+    vars:
+       ssh_port: 2049
