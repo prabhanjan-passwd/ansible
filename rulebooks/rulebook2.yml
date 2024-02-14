@@ -1,0 +1,20 @@
+---
+- name: Example
+  hosts: all
+  sources:
+  - ansible.eda.generic:
+      payload:
+        - friend_list:
+            names:
+               - fred
+               - barney
+        - request:
+            type: Delete
+            friend_name: fred
+  
+  rules:
+    - name: Condition using both a fact and an event
+      condition: fact.meta.hosts == "localhost"
+      action: 
+        run_playbook:
+          name: remediate_outage.yml
