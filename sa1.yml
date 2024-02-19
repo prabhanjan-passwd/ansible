@@ -8,4 +8,4 @@
           line: testing
           path: /tmp/hc-mw.log
           create: true
-      delegate_to: localhost 
+
