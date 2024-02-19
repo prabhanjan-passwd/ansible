@@ -1,0 +1,11 @@
+---
+  - name: write json
+    hosts: all
+    gather_facts: false
+    tasks:
+      - name: write result to json for elk
+        lineinfile: 
+          line: testing
+          path: /tmp/hc-mw.log
+          create: true
+      delegate_to: localhost 
