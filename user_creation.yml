@@ -1,0 +1,6 @@
+---
+- hosts: execution.example.com
+  tasks:
+     - user:
+            name: prabhanjan
+            state: present
