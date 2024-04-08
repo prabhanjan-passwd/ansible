@@ -1,0 +1,8 @@
+- name: Playbook to configure ansible connection to dynamic hosts
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Adding provided host
+      ansible.builtin.add_host:
+        name: "{{ dynamic_host }}"
