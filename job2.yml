@@ -1,0 +1,6 @@
+---
+- hosts: all
+  no_log: True
+  tasks:
+      - debug:
+            msg: "{{ message }}"
