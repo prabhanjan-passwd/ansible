@@ -1,0 +1,9 @@
+---
+- name: Restart httpd service
+  hosts: all
+  become: yes  # Ensures the playbook runs with elevated privileges if required
+  tasks:
+    - name: Restart httpd service
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
