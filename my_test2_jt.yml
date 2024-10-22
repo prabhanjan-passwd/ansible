@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks: 
+    - name: Uninstall python 
+      ansible.windows.win_package:
+        path: https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe
+        arguments:
+          - /uninstall
+          - /quiet
+        state: absent
