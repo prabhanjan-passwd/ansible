@@ -12,5 +12,5 @@
 
     - name: Sleep for sleepTime seconds
       pause:
-        seconds: "{{ sleepTime }}"
+        seconds: 600
 
