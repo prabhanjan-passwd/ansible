@@ -8,9 +8,9 @@
         name: rohan
         state: present
 
-    - name: Wait for 60 seconds
+    - name: Wait for 600 seconds
       ansible.builtin.pause:
-        seconds: 60
+        seconds: 600
 
     - name: Create user mandar
       ansible.builtin.user:
