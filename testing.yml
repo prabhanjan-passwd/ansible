@@ -12,5 +12,5 @@
 
     - name: Sleep for sleepTime seconds
       pause:
-        seconds: 60
+        seconds: 30
 
