@@ -1,20 +1,16 @@
 ---
-- name: Create users with wait period
+- name: Touch-and-Sleep
   hosts: all
-  become: true
+  gather_facts: false
+  serial: 1
+
   tasks:
-    - name: Create user rohan
-      ansible.builtin.user:
-        name: rohan
-        state: present
+    - name: Touch /tmp/touch-and-sleep
+      file:
+        path: /tmp/touch-and-sleep
+        state: touch
 
-    - name: Wait for 600 seconds
-      ansible.builtin.pause:
-        seconds: 600
-
-    - name: Create user mandar
-      ansible.builtin.user:
-        name: mandar
-        state: present
-
+    - name: Sleep for sleepTime seconds
+      pause:
+        seconds: "{{ sleepTime }}"
 
