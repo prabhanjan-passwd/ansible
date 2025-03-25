@@ -4,3 +4,6 @@
      - user:
             name: prabhanjan
             state: present
+     - name: Wait for 20 seconds
+       pause:
+          seconds: 20
