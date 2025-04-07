@@ -5,12 +5,24 @@
   collections:
     - ansible.controller
 
+  vars:
+    controller_host: "http://192.168.122.31"
+    controller_username: "admin"
+    controller_password: "redhat"
+
   tasks:
+    - name: Get token using controller_api
+      ansible.controller.controller_api_token:
+        controller_host: "{{ controller_host }}"
+        username: "{{ controller_username }}"
+        password: "{{ controller_password }}"
+        validate_certs: false
+      register: login_token
+
     - name: Create SSH credential
       ansible.controller.credential:
-        controller_host: "http://192.168.122.31"
-        controller_username: "admin"
-        controller_password: "redhat"
+        controller_host: "{{ controller_host }}"
+        oauth_token: "{{ login_token.token }}"
         validate_certs: false
         name: "My SSH Credential"
         description: "Created via playbook"
