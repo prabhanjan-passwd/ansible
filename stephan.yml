@@ -2,8 +2,9 @@
 - name: Create a credential in AAP
   hosts: localhost
   gather_facts: false
+  collections:
+    - ansible.controller
 
-  
   tasks:
     - name: Create SSH credential
       ansible.controller.credential:
@@ -14,5 +15,9 @@
         name: "My SSH Credential"
         description: "Created via playbook"
         organization: "Default"
-        credential_type: "Ansible Galaxy/Automation Hub API Token"
+        credential_type: "Machine"
+        inputs:
+          username: "ec2-user"
+          password: "changeme"
         state: present
+
