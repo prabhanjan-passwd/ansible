@@ -1,8 +1,9 @@
 ---
-- name: Create Galaxy Credential (short version)
+- name: Create Galaxy Credential (fixed version)
   hosts: localhost
   connection: local
   gather_facts: false
+
   tasks:
     - name: Create Galaxy credential
       ansible.controller.credential:
@@ -13,4 +14,8 @@
         name: galaxy_cred
         description: "Galaxy access"
         credential_type: "Ansible Galaxy/Automation Hub API Token"
-        organization: default
+        organization: Default
+        inputs:
+          auth_url: https://galaxy.ansible.com
+          token: dummy_token_abc
+
