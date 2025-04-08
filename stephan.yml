@@ -21,6 +21,3 @@
         description: "Galaxy access"
         credential_type: "Ansible Galaxy/Automation Hub API Token"
         organization: "{{ org }}"
-        inputs:
-          auth_url: https://galaxy.ansible.com
-          token: dummy_token_abc
