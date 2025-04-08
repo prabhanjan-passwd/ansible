@@ -33,3 +33,8 @@
         name: Default
         galaxy_credentials:
           - galaxy_cred
+          - Ansible Galaxy
+          - Automation Hub Community Repository
+          - Automation Hub Published Repository
+          - Automation Hub RH Certified Repository
+          - Automation Hub Validated Repository
