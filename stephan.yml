@@ -1,24 +1,26 @@
 ---
-- name: Create SSH credential in AAP
+- name: Create Galaxy Credential (short version)
   hosts: localhost
+  connection: local
   gather_facts: false
-  collections:
-    - ansible.controller
+
+  vars:
+    controller: https://192.168.122.31
+    user: admin
+    pass: redhat
+    org: Default
 
   tasks:
-    - name: Create SSH credential
+    - name: Create Galaxy credential
       ansible.controller.credential:
-        controller_host: "http://192.168.122.31"
-        controller_username: "admin"
-        controller_password: "redhat"
+        controller_host: "{{ controller }}"
+        controller_username: "{{ user }}"
+        controller_password: "{{ pass }}"
         validate_certs: false
-        name: "My SSH Credential"
-        description: "Created via playbook"
-        organization: "Default"
-        credential_type: "Machine"
+        name: galaxy_cred
+        description: "Galaxy access"
+        credential_type: "Ansible Galaxy/Automation Hub API Token"
+        organization: "{{ org }}"
         inputs:
-          username: "ec2-user"
-          password: "changeme"
-        state: present
-
-
+          auth_url: https://galaxy.ansible.com
+          token: dummy_token_abc
