@@ -3,21 +3,14 @@
   hosts: localhost
   connection: local
   gather_facts: false
-
-  vars:
-    controller: https://192.168.122.31
-    user: admin
-    pass: redhat
-    org: Default
-
   tasks:
     - name: Create Galaxy credential
       ansible.controller.credential:
-        controller_host: "{{ controller }}"
-        controller_username: "{{ user }}"
-        controller_password: "{{ pass }}"
+        controller_host: https://192.168.122.31
+        controller_username: admin
+        controller_password: redhat
         validate_certs: false
         name: galaxy_cred
         description: "Galaxy access"
         credential_type: "Ansible Galaxy/Automation Hub API Token"
-        organization: "{{ org }}"
+        organization: default
