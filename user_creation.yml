@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
      - user:
-            name: pranjal
+            name: rohan
             state: present
      - name: Wait for 20 seconds
        pause:
