@@ -1,8 +1,9 @@
 ---
-- name: Create AAP Project and Job Template with Same Name
+- name: Create AAP Project, Job Template, and Schedule
   hosts: localhost
   connection: local
   gather_facts: false
+
   tasks:
     - name: Create Project
       ansible.controller.project:
@@ -30,15 +31,25 @@
         state: present
         job_type: run
 
+    - name: Get job template ID for demo_project
+      ansible.controller.job_template_info:
+        controller_host: https://192.168.122.31
+        controller_username: admin
+        controller_password: redhat
+        validate_certs: false
+        name: demo_project
+      register: job_template_info
+
     - name: Create Schedule for Job Template
       ansible.controller.schedule:
-         controller_host: https://192.168.122.31
-         controller_username: admin
-         controller_password: redhat
-         validate_certs: false
-         name: demo_project_schedule
-         unified_job_template: demo_project
-         rrule: "DTSTART;TZID=UTC:20250413T030000 RRULE:FREQ=DAILY;INTERVAL=1"
-         state: present
+        controller_host: https://192.168.122.31
+        controller_username: admin
+        controller_password: redhat
+        validate_certs: false
+        name: demo_project_schedule
+        unified_job_template: "{{ job_template_info.resources[0].id }}"
+        rrule: "DTSTART;TZID=UTC:20250413T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+        state: present
+
 
 
