@@ -16,3 +16,18 @@
         organization: Default
         state: present
 
+    - name: Create Job Template
+      ansible.controller.job_template:
+        controller_host: https://192.168.122.31
+        controller_username: admin
+        controller_password: redhat
+        validate_certs: false
+        name: demo_project
+        inventory: Demo Inventory
+        project: demo_project
+        playbook: site.yml
+        credential: Demo Credential
+        state: present
+        job_type: run
+
+
