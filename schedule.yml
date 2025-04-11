@@ -32,13 +32,19 @@
         job_type: run
 
     - name: Get job template ID for demo_project
-      ansible.controller.job_template_info:
+      ansible.controller.export:
         controller_host: https://192.168.122.31
         controller_username: admin
         controller_password: redhat
         validate_certs: false
-        name: demo_project
-      register: job_template_info
+        all: false
+        job_templates:
+          - demo_project
+      register: export_data
+
+    - name: Extract job template ID
+      set_fact:
+        demo_job_template_id: "{{ export_data.resources.job_templates[0].id }}"
 
     - name: Create Schedule for Job Template
       ansible.controller.schedule:
@@ -47,9 +53,6 @@
         controller_password: redhat
         validate_certs: false
         name: demo_project_schedule
-        unified_job_template: "{{ job_template_info.resources[0].id }}"
+        unified_job_template: "{{ demo_job_template_id }}"
         rrule: "DTSTART;TZID=UTC:20250413T030000 RRULE:FREQ=DAILY;INTERVAL=1"
         state: present
-
-
-
