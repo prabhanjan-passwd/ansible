@@ -25,7 +25,7 @@
         name: demo_project
         inventory: Demo Inventory
         project: demo_project
-        playbook: site.yml
+        playbook: hello_world.yml
         credential: Demo Credential
         state: present
         job_type: run
