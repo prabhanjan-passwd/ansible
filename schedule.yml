@@ -1,0 +1,18 @@
+---
+- name: Create AAP Project and Job Template with Same Name
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Create Project
+      ansible.controller.project:
+        controller_host: https://192.168.122.31
+        controller_username: admin
+        controller_password: redhat
+        validate_certs: false
+        name: demo_project
+        scm_type: git
+        scm_url: https://github.com/prabhanjan-passwd/ansible/
+        organization: Default
+        state: present
+
