@@ -30,4 +30,15 @@
         state: present
         job_type: run
 
+    - name: Create Schedule for Job Template
+      ansible.controller.schedule:
+         controller_host: https://192.168.122.31
+         controller_username: admin
+         controller_password: redhat
+         validate_certs: false
+         name: demo_project_schedule
+         unified_job_template: demo_project
+         rrule: "DTSTART;TZID=UTC:20250413T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+         state: present
+
 
