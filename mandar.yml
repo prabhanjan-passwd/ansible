@@ -1,0 +1,12 @@
+---
+- name: Create user mandar with plain-text password
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create user mandar
+      ansible.builtin.user:
+        name: mandar
+        state: present
+
+    - name: Set plain-text password for user mandar
+      ansible.builtin.shell: echo "mandar:redhat" | chpasswd
