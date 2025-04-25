@@ -1,17 +1,16 @@
 ---
-- name: Mount directory on RHEL9 nodes
+- name: Bind mount /home/mydata to /mnt/mydata
   hosts: all
   tasks:
-    - name: Ensure mount point directory exists
-      file:
-        path: /mnt/mydata
-        state: directory
-        mode: '0755'
+    - name: Create source and target directories
+      ansible.builtin.shell: |
+        sudo mkdir -p /home/mydata /mnt/mydata
+        sudo chmod 755 /home/mydata /mnt/mydata
+      args:
+        warn: false
 
-    - name: Mount /dev/sdb1 to /mnt/mydata
-      ansible.posix.mount:
-        path: /mnt/mydata
-        src: /dev/sdb1
-        fstype: xfs
-        opts: defaults
-        state: mounted
+    - name: Bind mount /home/mydata to /mnt/mydata
+      ansible.builtin.shell: |
+        sudo mount --bind /home/mydata /mnt/mydata
+      args:
+        warn: false
