@@ -6,11 +6,8 @@
       ansible.builtin.shell: |
         sudo mkdir -p /home/mydata /mnt/mydata
         sudo chmod 755 /home/mydata /mnt/mydata
-      args:
-        warn: false
 
     - name: Bind mount /home/mydata to /mnt/mydata
       ansible.builtin.shell: |
         sudo mount --bind /home/mydata /mnt/mydata
-      args:
-        warn: false
+     
