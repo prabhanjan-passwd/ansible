@@ -1,0 +1,17 @@
+---
+- name: Mount directory on RHEL9 nodes
+  hosts: all
+  tasks:
+    - name: Ensure mount point directory exists
+      file:
+        path: /mnt/mydata
+        state: directory
+        mode: '0755'
+
+    - name: Mount /dev/sdb1 to /mnt/mydata
+      ansible.posix.mount:
+        path: /mnt/mydata
+        src: /dev/sdb1
+        fstype: xfs
+        opts: defaults
+        state: mounted
