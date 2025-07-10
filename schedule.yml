@@ -7,7 +7,7 @@
   tasks:
     - name: Create Project
       ansible.controller.project:
-        controller_host: https://192.168.122.31
+        controller_host: https://192.168.122.14
         controller_username: admin
         controller_password: redhat
         validate_certs: false
@@ -19,7 +19,7 @@
 
     - name: Create Job Template
       ansible.controller.job_template:
-        controller_host: https://192.168.122.31
+        controller_host: https://192.168.122.14
         controller_username: admin
         controller_password: redhat
         validate_certs: false
@@ -34,11 +34,11 @@
     
     - name: Create Schedule for Job Template
       ansible.controller.schedule:
-        controller_host: https://192.168.122.31
+        controller_host: https://192.168.122.14
         controller_username: admin
         controller_password: redhat
         validate_certs: false
         name: demo_project_schedule
-        unified_job_template: <demo_job_template_id>
+        unified_job_template: 7
         rrule: "DTSTART;TZID=UTC:20250413T030000 RRULE:FREQ=DAILY;INTERVAL=1"
         state: present
