@@ -5,33 +5,6 @@
   gather_facts: false
 
   tasks:
-    - name: Create Project
-      ansible.controller.project:
-        controller_host: https://192.168.122.14
-        controller_username: admin
-        controller_password: redhat
-        validate_certs: false
-        name: demo_project
-        scm_type: git
-        scm_url: https://github.com/prabhanjan-passwd/ansible/
-        organization: Default
-        state: present
-
-    - name: Create Job Template
-      ansible.controller.job_template:
-        controller_host: https://192.168.122.14
-        controller_username: admin
-        controller_password: redhat
-        validate_certs: false
-        name: demo_project
-        inventory: Demo Inventory
-        project: demo_project
-        playbook: hello_world.yml
-        credential: Demo Credential
-        state: present
-        job_type: run
-
-    
     - name: Create Schedule for Job Template
       ansible.controller.schedule:
         controller_host: https://192.168.122.14
