@@ -1,0 +1,28 @@
+---
+- name: testing playbook workflow
+  hosts: all
+  tasks: 
+     - name: Import the organization's resources
+      ansible.builtin.import_role:
+        name: infra.aap_configuration.dispatch
+      vars:
+        gateway_configuration_dispatcher_roles: []
+        controller_configuration_dispatcher_roles:
+          # ORDER MATTERS!!!
+          - role: controller_projects
+            var: controller_projects
+            tags: projects
+          - role: controller_inventories
+            var: controller_inventories
+            tags: inventories
+          - role: controller_inventory_sources
+            var: controller_inventory_sources
+            tags: inventory_sources
+          - role: controller_job_templates
+            var: controller_templates
+            tags: job_templates
+          - role: controller_workflow_job_templates
+            var: controller_workflows
+            tags: workflow_job_templates
+                                                  
+  
