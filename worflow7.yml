@@ -5,7 +5,7 @@
      - name: Import the organization's resources
        ansible.builtin.import_role:
         name: infra.aap_configuration.dispatch
-      vars:
+       vars:
         gateway_configuration_dispatcher_roles: []
         controller_configuration_dispatcher_roles:
           # ORDER MATTERS!!!
