@@ -3,7 +3,7 @@
   hosts: all
   tasks: 
      - name: Import the organization's resources
-      ansible.builtin.import_role:
+       ansible.builtin.import_role:
         name: infra.aap_configuration.dispatch
       vars:
         gateway_configuration_dispatcher_roles: []
