@@ -1,0 +1,6 @@
+# event_source.yml
+sources:
+  - name: broken-source
+    type: not.a.real.plugin  # intentionally invalid plugin
+    config:
+      host: localhost
