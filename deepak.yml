@@ -1,0 +1,22 @@
+- name: Onboard Product Team in AAP
+  hosts: localhost
+  gather_facts: false
+  tasks:
+   - name: Create Organization for Product
+     ansible.platform.organization:
+        aap_hostname: 192.168.122.151
+        aap_username: "admin"
+        aap_token: "redhat"
+        name: test-org-prabhanjan
+        description: This is my testing org
+        state: present
+    register: Org_name
+
+#- name: Assign Role to Teams
+#  infra.aap_configuration.gateway_teams: 
+#    name: "xxxxxxxxxxx"
+#    organization: "{{ test }}"
+#    aap_hostname: "xxxxxxxxxx"
+#    aap_username: "admin"
+#    aap_token: "xxxxxxxxxxx"
+#    state: present
