@@ -1,0 +1,22 @@
+---
+- name: Export Resources
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+  - name: Export all inventories
+    export:
+      job_templates: "Demo Template"
+      controller_host : 'https://192.168.122.79''
+      controller_username: 'admin'
+      controller_password: 'redhat'
+      validate_certs: false
+      register: export_output
+
+    - name: Save export to file
+      copy:
+        content: "{{ export_output.assets }}"
+        dest: credential_types.json
+
