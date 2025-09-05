@@ -7,7 +7,7 @@
   tasks:
 
     - name: Export all inventories
-      export:
+      ansible.controller.export:
         job_templates: "Demo Template"
         controller_host : 'https://192.168.122.79'
         controller_username: 'admin'
