@@ -15,8 +15,8 @@
       validate_certs: false
       register: export_output
 
-    - name: Save export to file
-      copy:
+  - name: Save export to file
+    copy:
         content: "{{ export_output.assets }}"
         dest: credential_types.json
 
