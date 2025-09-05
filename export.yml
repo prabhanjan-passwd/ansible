@@ -9,7 +9,7 @@
     - name: Export all inventories
       export:
         job_templates: "Demo Template"
-        controller_host : 'https://192.168.122.79''
+        controller_host : 'https://192.168.122.79'
         controller_username: 'admin'
         controller_password: 'redhat'
         validate_certs: false
