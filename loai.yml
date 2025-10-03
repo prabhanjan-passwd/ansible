@@ -1,6 +1,6 @@
 ---
 - name: Update system with security patches only
-  hosts: "{{group}}"
+  hosts: 192.168.122.5
   become: true
   tasks:
     - name: Update all packages with security updates
