@@ -1,0 +1,15 @@
+- name: playbook-nginx-check-rol.yml
+  hosts: all
+  gather_facts: no
+  become: True
+  become_method: sudo
+  become_user: {{ user }}
+  become_flags: -i
+  tasks:
+         - name: identificar entorno
+           include_role:
+              name: identificar-entorno
+
+         - name: hostname
+           debug:
+              msg: "{{ variable_hosts }} {{ var_entorno }}"
