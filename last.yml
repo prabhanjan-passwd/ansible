@@ -1,0 +1,9 @@
+---
+- name: Display welcome message
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Print welcome message
+      debug:
+        msg: "Welcome"
