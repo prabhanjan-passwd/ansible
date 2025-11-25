@@ -4,6 +4,3 @@
      - user:
             name: rohan
             state: present
-     - name: Wait for 20 seconds
-       pause:
-          seconds: 20
