@@ -1,0 +1,21 @@
+---
+- name: 'Configure AAP'
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    aap_validate_certs: false
+    controller_configs_dir: "./inventory/group_vars/{{ deployment }}"
+    controller_validate_certs: false
+
+  tasks:
+    - name: Include vars from configs directory
+      ansible.builtin.include_vars:
+        dir: "{{ controller_configs_dir }}"
+        extensions: ["yml"]
+      tags:
+        - always
+
+    - name: Call dispatch role
+      ansible.builtin.include_role:
+        name: infra.aap_configuration.dispatch
