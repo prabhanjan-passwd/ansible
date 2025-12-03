@@ -3,15 +3,15 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  vars:
-    aap_validate_certs: false
-    controller_configs_dir: "./inventory/group_vars/{{ deployment }}"
-    controller_validate_certs: false
+  #vars:
+    # aap_validate_certs: false
+    # controller_configs_dir: "./inventory/group_vars/{{ deployment }}"
+    # controller_validate_certs: false
 
   tasks:
     - name: Include vars from configs directory
       ansible.builtin.include_vars:
-        dir: "{{ controller_configs_dir }}"
+        dir: ./inventory/group_vars/{{ deployment }}
         extensions: ["yml"]
       tags:
         - always
