@@ -1,0 +1,13 @@
+---
+- name: Display /etc/passwd content
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Execute cat /etc/passwd
+      ansible.builtin.command: cat /etc/passwd
+      register: passwd_output
+
+    - name: Print command output
+      ansible.builtin.debug:
+        var: passwd_output.stdout_lines
